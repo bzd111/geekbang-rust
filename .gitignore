@@ -1,0 +1,5 @@
+target/
+xunmi-py/.env/
+.env/
+queryer-all/target/
+queryer-all/queryer_py/.venv

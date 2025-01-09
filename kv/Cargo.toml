@@ -1,0 +1,100 @@
+[package]
+name = "kv"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "kvs"
+path = "src/server.rs"
+
+[[bin]]
+name = "kvc"
+path = "src/client.rs"
+
+[dependencies]
+anyhow = "1.0.86"
+bytes = "1.7.1"
+dashmap = "6.0.1"
+flate2 = "1.0.33"
+http = "1.1.0"
+prost = "0.13.1"
+rustls-native-certs = "0.8.0"
+sled = "0.34.7"
+thiserror = "1.0.63"
+# tokio-rustls = "0.26.0"
+tokio-util = { version = "0.7.11", features = ["codec", "compat"] }
+# tokio-util = { version = "0.6", features = ["compat"]} # tokio 和 futures 的兼容性库
+# tracing = "0.1.40"
+# tracing-subscriber = { version = "0.3.18", features = [
+# 	"json",
+# 	"chrono",
+# 	"env-filter",
+# ] }
+tokio-rustls = "0.22.0"
+futures = "0.3.30"
+yamux = "0.9"
+tokio-stream = { version = "0.1.16", features = ["sync"] } # 处理 stream
+serde = { version = "1.0.210", features = ["derive"] }
+toml = "0.8.19"
+# opentelemetry-jaeger = "0.22.0"
+# tracing-appender = "0.2.3"
+
+# opentelemetry-otlp = { version = "0.25.0", features = [
+# 	"logs",
+# 	"metrics",
+# 	"trace",
+# 	"grpc-tonic",
+# ] }
+# tokio = { version = "1.38.0", features = ["full"] }
+# opentelemetry-semantic-conventions = "0.10"
+# opentelemetry-jaeger = "0.22.0"
+# tokio = { version = "1.38.1", features = ["full"] }
+# opentelemetry_sdk = { version = "0.25.0", features = ["trace", "rt-tokio"] }
+
+# opentelemetry-jaeger = "0.22.0"
+# opentelemetry_sdk = { version = "0.25.0", features = ["trace", "rt-tokio"] }
+# tokio = { version = "1.38.1", features = ["full"] }
+# tracing = "0.1.40"
+# tracing-appender = "0.2.3"
+# opentelemetry = { version = "0.18" }
+# opentelemetry-semantic-conventions = "0.10"
+# tracing-opentelemetry = "0.18"
+# tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+# opentelemetry-otlp = { version = "0.11", features = ["default"] }
+
+opentelemetry = { version = "0.25.0" }
+opentelemetry_sdk = { version = "0.25.0", features = ["rt-tokio"] }
+opentelemetry-otlp = { version = "0.25.0", features = ["tonic"] }
+opentelemetry-semantic-conventions = { version = "0.25.0" }
+tokio = { version = "1", features = ["full"] }
+tracing = "0.1.40"
+tracing-opentelemetry = "0.26.0"
+tracing-subscriber = { version = "0.3.18", features = [
+	"registry",
+	"env-filter",
+] }
+
+
+[dev-dependencies]
+anyhow = "1.0.86"
+async-prost = "0.4.0"
+certify = "0.3.0"
+criterion = { version = "0.5.1", features = [
+	"html_reports",
+	"async_tokio",
+	"async_futures",
+] }
+rand = "0.8.5"
+# certify = "0.5.2"
+tempfile = "3.12.0"
+tokio = { version = "1.38.0", features = ["full"] }
+# tokio = { version = "1.39.3", features = ["full"] }
+tracing-subscriber = "0.3.18"
+
+
+[build-dependencies]
+prost-build = "0.13.1"
+
+[[bench]]
+name = "pubsub"
+harness = false

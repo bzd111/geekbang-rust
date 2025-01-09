@@ -1,0 +1,8 @@
+[workspace]
+
+members = [
+  "queryer",
+  "queryer_py"
+]
+
+resolver = "2"
